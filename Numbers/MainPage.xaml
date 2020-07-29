@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:numbers="clr-namespace:Numbers;assembly=Numbers"
+             mc:Ignorable="d"
+             x:Class="Numbers.MainPage">
+<ContentPage.BindingContext>
+    <numbers:MainViewModel/>
+</ContentPage.BindingContext>
+
+    
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="{Binding CountText}" 
+               FontSize="100"
+               HorizontalOptions="Center"/>
+        
+        <Slider x:Name="Slider"
+                Maximum="10"
+                Minimum="4"  
+                Value="{Binding Count}" 
+                ValueChanged="Slider_OnValueChanged"
+                Margin="0, 20, 0, 20"
+        />  
+
+        <Label Text="{Binding Numbers}" 
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+               FontSize="30" />
+
+        <Label Text="{Binding Result}" 
+               FontSize="90"
+               HorizontalOptions="Center"
+               IsVisible="{Binding ResultVisibility}"/>
+
+        <Button Text="Start" Clicked="Handle_Clicked" WidthRequest="40" HeightRequest="40" BorderRadius="20" />
+        <Button Text="Check" Clicked="Handle_Clicked2" WidthRequest="40" HeightRequest="40" BorderRadius="20" />
+    </StackLayout>
+
+</ContentPage>
